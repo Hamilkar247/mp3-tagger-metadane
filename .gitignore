@@ -1,0 +1,6 @@
+*~
+*.sw*
+.idea/
+venv/
+venv/
+*.mp3

@@ -51,7 +51,7 @@ def main():
         mp3.artist = args.artist
     if args.song is not None:
         mp3.save()
-    if args.track is not None:
+    if args.track is not None:# track powinno być number nie literal !
         mp3.track = args.track
     if args.comment is not None:
         mp3.comment = args.comment

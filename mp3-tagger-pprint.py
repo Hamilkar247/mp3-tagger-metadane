@@ -3,6 +3,7 @@ import os
 from pprint import pprint
 from mp3_tagger import MP3File
 
+
 def def_params():
     parser = argparse.ArgumentParser(
         description='testowy opis'
@@ -10,6 +11,7 @@ def def_params():
     parser.add_argument("-f", "--file", help="plik mp3 do tagowania", required=True)
     args = parser.parse_args()
     return args
+
 
 def main():
     args = def_params()

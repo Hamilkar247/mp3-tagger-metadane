@@ -1,5 +1,5 @@
 import logging
-from mp3_tagger import MP3File, VERSION_2, VERSION_BOTH
+from mp3_tagger import MP3File, VERSION_1#, VERSION_BOTH
 import argparse
 import os
 from pprint import pprint
@@ -33,6 +33,9 @@ def def_params():
     parser.add_argument("-s", "--song", help='tag dla piosenki', required=False)
     parser.add_argument("-t", "--track", help="tag dla ścieszki", required=False)
     parser.add_argument("-c", "--comment", help="tag dla komentarzy", required=False)
+    parser.add_argument("-g", "--genre", help="tag dla gatunku muzycznego", required=False)
+    parser.add_argument("-y", "--year", help="tag dla roku utworu", required=False)
+
     args = parser.parse_args()
     if args.loghami:
         logging.basicConfig(level=logging.DEBUG)
@@ -44,6 +47,7 @@ def main():
     bas_dir = os.path.dirname(os.path.realpath(__file__))
     logging.debug("parametry:" + str(args))
     mp3 = MP3File(args.file)
+    mp3.set_version(VERSION_1)
     logging.debug("parametry:" + str(args))
     if args.album is not None:
         mp3.album = args.album
@@ -65,6 +69,14 @@ def main():
         mp3.comment = args.comment
     else:
         mp3.comment = ""
+    if args.genre is not None:
+        mp3.genre = args.genre #to jest enum de facto - przyjmijmy że wpisujemy 0
+    else:
+        mp3.genre = 0
+    if args.year is not None:
+        mp3.year = args.year
+    else:
+        mp3.year = ""
     mp3.save()
     pprint(mp3.get_tags())
 

@@ -47,15 +47,25 @@ def main():
     logging.debug("parametry:" + str(args))
     if args.album is not None:
         mp3.album = args.album
+    else:
+        mp3.album = ""
     if args.artist is not None:
         mp3.artist = args.artist
+    else:
+        mp3.artist = ""
     if args.song is not None:
         mp3.song = args.song
+    else:
+        mp3.song = ""
     if args.track is not None:# track powinno być number nie literal !
         mp3.track = args.track
+    else:
+        mp3.track = "0" #musi być jakaś wartość - dlatego 0
     if args.comment is not None:
         mp3.comment = args.comment
-    mp3.save()g
+    else:
+        mp3.comment = ""
+    mp3.save()
     pprint(mp3.get_tags())
 
 

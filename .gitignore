@@ -4,3 +4,4 @@
 venv/
 venv/
 *.mp3
+geckodriver.log

@@ -50,12 +50,12 @@ def main():
     if args.artist is not None:
         mp3.artist = args.artist
     if args.song is not None:
-        mp3.save()
+        mp3.song = args.song
     if args.track is not None:# track powinno być number nie literal !
         mp3.track = args.track
     if args.comment is not None:
         mp3.comment = args.comment
-    mp3.save()
+    mp3.save()g
     pprint(mp3.get_tags())
 
 

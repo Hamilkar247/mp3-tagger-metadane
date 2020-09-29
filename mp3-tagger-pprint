@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#dirname - daje ścieszke do pliku, ucinając samą nazwę pliku
+#$0 - zwraca nazwe skryptu
+#realpath
+REAL=$(dirname $(realpath $0))
+echo $REAL
+#do PATH w tym skrypcie ( bez zmiany globalnej PATH) doklejamy wewnetrzny python tego skryptu
+PATH="$REAL/venv/bin:$PATH"
+#odpalamy skrypt - w real mamy ścieszke potem nazwa skryptu i dajemy $@ - co przesyła wszystkie podane argumenty)
+python $REAL/mp3-tagger-pprint.py $@

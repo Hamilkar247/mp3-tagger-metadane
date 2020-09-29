@@ -21,6 +21,8 @@ from pprint import pprint
 # mp3.save()
 # print(tags)
 
+#186 Podcast, 183 audiobook
+
 def def_params():
     parser = argparse.ArgumentParser(
         description='testowy opis'
@@ -33,7 +35,7 @@ def def_params():
     parser.add_argument("-s", "--song", help='tag dla piosenki', required=False, default="")
     parser.add_argument("-t", "--track", help="tag dla ścieszki", required=False, default=1)
     parser.add_argument("-c", "--comment", help="tag dla komentarzy", required=False, default="")
-    parser.add_argument("-g", "--genre", help="tag dla gatunku muzycznego", required=False, default=0)
+    parser.add_argument("-g", "--genre", help="tag dla gatunku", required=False, default="Podcast")
     parser.add_argument("-y", "--year", help="tag dla roku utworu", required=False, default="")
 
     args = parser.parse_args()
